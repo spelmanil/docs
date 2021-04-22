@@ -63,6 +63,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../mixamo_characters_and_animations/">Mixamo Characters and Animations</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../controllable_char_with_SA/">Creating Controllable Characters with Unity Standard Assets</a>
+                    </li>
+                </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Template</a>
     <ul class="current">
@@ -102,16 +106,33 @@
             <div class="section">
               
                 <p><link rel="stylesheet" href="../css/images.css" /></p>
-<h2 id="template-for-creating-a-new-doc-page">&#x1F4D8; Template for creating a new Doc page</h2>
+<h1 id="template-for-creating-a-new-doc-page">&#x1F4D8; Template for creating a new Doc page</h1>
+<!----------------- BEGIN: CUT HERE ----------------->
 <p>Begin with a copy of this file.  Name it appropriately.  Then, create a directory to hold the media associated with the new page.  For consistency, give the directory the same name as your newly created md file.  So, for <code>template.md</code>, the directory will be <code>template</code>.  Place <code>template.md</code> on the root directory (the directory that contains the top-level index.md file.  Add an entry to <code>mkdocs.yml</code> that points to your .md file.</p>
 <p>Assume we have an image <code>image1.jpg</code>.  Put this image in the <code>template</code> directory.  Reference the image with a local path <code>template\image1.jpg</code> in the following way:</p>
 <pre><code>![Alt text](template/image1.jpg?style=center50)
 </code></pre>
 <p><img alt="Cute Baby" src="image1.jpg?style=center50" /></p>
 <p>The <code>Alt text</code> can be empty.  The style has values like <code>center50</code>, <code>right30</code>, <code>left10</code>, <code>scale70</code>, etc.  For these examples, the respective results would be "image is centered and scaled at 50%", "image is right-aligned and scaled at 30%", "image is left aligned and scaled at 10%" and "image is scaled at 70%".
-<em>Note that in order to use these image style values, you must link to the appropriate <code>css file</code> at the top of your md file:</em></p>
+<em>Note that in order to use these image style values, you must link to the appropriate css file at the top of your md file:</em></p>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/images.css&quot; /&gt;
 </code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a warning for you.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a note for you.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This is a danger notice for you.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is an important message for you.</p>
+</div>
 <p>A few interesting Unicodes:  </p>
 <p>RED APPLE: &#x1F34E;<br />
 GREEN APPLE: &#x1F34F;<br />
@@ -132,6 +153,8 @@ UP-POINTING RED TRIANGLE: &#x1F53A;<br />
 DOWN-POINTING RED TRIANGLE: &#x1F53B;<br />
 UP-POINTING SMALL RED TRIANGLE: &#x1F53C;<br />
 DOWN-POINTING SMALL RED TRIANGLE: &#x1F53D;  </p>
+<!----------------- END: CUT HERE ----------------->
+
 <p><br><hr></p>
 <p><img alt="" src="../images/il_logo.png?style=center20" /></p>
               
@@ -142,7 +165,7 @@ DOWN-POINTING SMALL RED TRIANGLE: &#x1F53D;  </p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../mixamo_characters_and_animations/" class="btn btn-neutral" title="Mixamo Characters and Animations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../controllable_char_with_SA/" class="btn btn-neutral" title="Creating Controllable Characters with Unity Standard Assets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -168,7 +191,7 @@ DOWN-POINTING SMALL RED TRIANGLE: &#x1F53D;  </p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mixamo_characters_and_animations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../controllable_char_with_SA/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

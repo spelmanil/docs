@@ -84,6 +84,10 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../controllable_char_with_SA/">Creating Controllable Characters with Unity Standard Assets</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../template/">Template</a>
                     </li>
                 </ul>
@@ -122,14 +126,13 @@
                 <p><link rel="stylesheet" href="../css/images.css" /></p>
 <h1 id="mixamo-characters-and-animations">&#x1F4D8; Mixamo Characters and Animations</h1>
 <p>This is a 2-part guide.  It covers how to download humanoid characters and animations from the website mixamo.com.  I believe all the mixamo characters are humanoid, meaning that they are all <em>rigged</em> in the same way.</p>
-<div style="background-color:lightblue; padding:20px">
-<i><b>Skeletal animation</b></i> or <i><b>rigging</b></i> is a technique in computer animation in which a character (or other articulated object) is represented in two parts: a surface representation used to draw the character, called the <i>mesh</i> or <i>skin</i> and a hierarchical set of interconnected parts called <i>bones</i>, <i>skeleton</i> or <i>rig</i>.
-<br/><br/>
-<a href=https://en.wikipedia.org/wiki/Skeletal_animation>https://en.wikipedia.org/wiki/Skeletal_animation</a>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong><em>Skeletal animation</em></strong> or <strong><em>rigging</em></strong> is a technique in computer animation in which a character (or other articulated object) is represented in two parts: a surface representation used to draw the character, called the <em>mesh</em> or <em>skin</em> and a hierarchical set of interconnected parts called <em>bones</em>, <em>skeleton</em> or <em>rig</em>.<br/><br/>
+<a href="https://en.wikipedia.org/wiki/Skeletal_animation">href=https://en.wikipedia.org/wiki/Skeletal_animation</a><br/><br/></p>
 </div>
-
-<p>We will download characters and animations separately.  That way, we can download our characters one time, then apply any future animation we want to that character.</p>
+<p><br/>
+We will download characters and animations separately.  That way, we can download our characters one time, then apply any future animation we want to that character.</p>
 <p>I recommend creating a mixamo folder somewhere on your hard drive to store your character, if you want to use the same character in multiple projects.  This folder should be outside of any Unity project.  Give it any name you choose.  Assets stored here will be project independent.  We will refer to this folder as your “mixamo folder”.  Tip: You will want to organize this folder into sub-folders by character and animation.</p>
 <h2 id="downloading-a-character-from-mixamo">Downloading a Character From Mixamo</h2>
 <h3 id="step-1-download-your-character">Step 1: Download your character</h3>
@@ -168,7 +171,7 @@
 <p><img alt="" src="bots.png?style=center60" /></p>
 <ul>
 <li>Select the animation you wish to download</li>
-<li>If the animation has a <em>root transform</em>, you will see an “In Place” checkbox as part of the animation option.  If unsure, select this as shown in the image below.  A root transform causes the animation to automatically translate during the course of the animation.  For example, a root transformation would cause walking animation to actually travel.  Selecting “In Place” causes the animation to cycle without displacing the character.  This is probably the behavior you want.</li>
+<li>If the animation has a <em>root transform</em>, you will see an “In Place” checkbox as part of the animation option.  If unsure, select this as shown in the image below.  A root transform causes the animation to automatically translate during the course of the animation.  For example, a root transformation would cause a walking animation to actually travel.  Selecting “In Place” causes the animation to cycle without displacing the character.  This is probably the behavior you want.</li>
 </ul>
 <p><img alt="" src="check_in_place.png?style=center50" /></p>
 <ul>
@@ -220,7 +223,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../template/" class="btn btn-neutral float-right" title="Template">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../controllable_char_with_SA/" class="btn btn-neutral float-right" title="Creating Controllable Characters with Unity Standard Assets">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Unity_and_GitHub/" class="btn btn-neutral" title="Unity & GitHub"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -252,7 +255,7 @@
         <span><a href="../Unity_and_GitHub/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../template/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../controllable_char_with_SA/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
