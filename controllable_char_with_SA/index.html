@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://spelmanil.github.io/docs/controllable_char_with_SA/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Creating Controllable Characters with Unity Standard Assets - Spelman Innovaiton Lab Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Creating Controllable Characters with Unity Standard Assets";
+    var mkdocs_page_input_path = "controllable_char_with_SA.md";
+    var mkdocs_page_url = "/docs/controllable_char_with_SA/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Spelman Innovaiton Lab Docs</a>
+        
+<div role="search">
+  <div align="center">
+  <img style="all:unset" src="../images/IL_logo_white_clr_bkgd_200.png"></img><br/><br/>
+  </div>
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Unity_and_GitHub/">Unity & GitHub</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mixamo_characters_and_animations/">Mixamo Characters and Animations</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Creating Controllable Characters with Unity Standard Assets</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#part-i-create-a-3rd-person-controller">Part I - Create a 3rd Person Controller</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#part-ii-add-a-3rd-player-camera">Part II - Add a 3rd Player Camera</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#part-iii-replace-the-default-character">Part III - Replace the Default Character</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../template/">Template</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Spelman Innovaiton Lab Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Creating Controllable Characters with Unity Standard Assets</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><link rel="stylesheet" href="../css/images.css" /></p>
+<h1 id="creating-controllable-characters-with-unity-standard-assets">&#x1F4D8; Creating Controllable Characters with Unity Standard Assets</h1>
+<p>In this exercise, you will create a keyboard- and joystick-controllable third person character using the Unity Standard Assets.  This guide uses <em>Standard Assets 2018.4.1</em> running on <em>Unity 2019.4.16f1 Personal</em>.</p>
+<p><img alt="" src="image1.jpg?style=left25" /></p>
+<p><img alt="" src="image2.jpg?style=left25" /></p>
+<p><img alt="" src="image3.jpg?style=left25" /></p>
+<p><img alt="" src="image4.jpg?style=scale25" /></p>
+<p>Begin by downloading the character you want to use for this exercise.  Follow Steps 1 and 3 of the “<em><a href="../mixamo_characters_and_animations/">Instructions for downloading characters and animations from mixamo.com</a></em>” guide to download your character.  You can also download characters from the Unity store or from other online sources.</p>
+<p>This guide makes use of the Standard Assets (SA) package created by Unity and made available for free through the Unity Assets Store.  The SAs provide resources to quickly complete common tasks.  We will be using it to create a third-person character that you will be able to control with the keyboard or with a joystick.  This is a three part guide.  Do part I first.  You can do parts II or III in any order.</p>
+<h2 id="part-i-create-a-3rd-person-controller">Part I - Create a 3rd Person Controller</h2>
+<ol>
+<li>Create a new 3D project</li>
+<li>We will need two resources from the SA package: CrossPlatformInput and ThirdPersonCharacter</li>
+<li>Navigate to the Asset Store:<br />
+<code>Window-&gt;Asset Store</code><br />
+    and search for the Unity Standard Assets.</li>
+<li>
+<p>Once you have the package, select “Import” to bring it into the current project.</p>
+<p><img alt="" src="SA.png?style=center70" />
+<br/>
+5. You will be shown a menu of resources within the SA package available for import.  While you can import everything, this will result in a larger than necessary project directory (always be mindful of disk space when working with Unity).  For Part I of this guide, you need to import only 2 things: <em>ThirdPersonCharacter</em> and <em>CrossPlatformInput</em>:<br />
+<code>Standard Assets-&gt;CrossPlatformInput</code><br />
+<code>Standard Assets-&gt;Characters-&gt;ThirdPersonCharacter</code>  </p>
+<p><img alt="" src="SA_select_packages.png?style=center70" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For Part II, we will need the <em>Cameras</em> resource.  You may want to import it now to save time later.</p>
+</div>
+</li>
+<li>
+<p>From the ThirdPersonCharacter folder, instantiate a ThirdPersonController by dragging the ThirdPersonController to the Hierarchy Window.
+    (<em>Assets-&gt;StandardAssets-&gt;Characters-&gt;ThirdPersonCharacter-&gt;Prefabs-&gt;ThirdPersonController</em>)</p>
+<p><img alt="" src="3rd_person_asset.png?style=center100" /></p>
+<p><br/>This will create the character “Ethan” that should be visible in the scene.  </p>
+</li>
+<li>
+<p>If you run the project, you will notice that Ethan simply falls out of view.  This is because the character is subject to gravity.  To fix this, we need to create a floor.</p>
+</li>
+<li>
+<p>Instantiate a cube.  Flatten and stretch it to create a floor.  For example, you might scale it in its transform window with the X and Z scales set to 100 and the Y scale set to 0.1.  However you scale it, position it so that it is immediately below Ethan’s feet.</p>
+<p><img alt="" src="ethan.png?style=center60" />
+   <br/>
+9. Now run the project again.  This time, Ethan has a floor beneath his feet.  You should be able to control him with the keyboard arrows or with a joystick.  Use ‘C’ to crouch down and use the spacebar to jump.  Use the left shift key to make him walk.</p>
+</li>
+</ol>
+<h2 id="part-ii-add-a-3rd-player-camera">Part II - Add a 3rd Player Camera</h2>
+<p>In this part, we will replace the default static camera with a 3rd player camera that will follow the player around.</p>
+<ol>
+<li>If you hadn’t already done so in Step 5 of Part I, add a third SA asset to the project: Cameras (“Standard Assets-&gt;Cameras”)</li>
+<li>Delete the “Main Camera” from the project hierarchy</li>
+<li>Instantiate a “multipurpose camera rig” to the hierarchy.  From the Assets window, (<em>Assets-&gt;StandardAssets-&gt;Cameras-&gt;Prefabs-&gt;MultipuposeCameraRig</em>)</li>
+<li>
+<p>Tag the ThirdPersonController as the “Player” in the Inspector.  This is how the camera knows what to follow.</p>
+<p><img alt="" src="3rd_person_select.png?style=center100" /></p>
+</li>
+</ol>
+<p><br/>
+5. Run the project again.  Note how the camera follows the player.  Feel free to experiment with the other available cameras.  Note that the first person camera requires importing <em>Standard Assets-&gt;Utility</em>.</p>
+<h2 id="part-iii-replace-the-default-character">Part III - Replace the Default Character</h2>
+<p>In this part, we will replace Ethan with a character of our choice.</p>
+<ol>
+<li>Import a rigged humanoid character model into the project.  Be certain that your character’s Rig is set to “humanoid”.  For this example, we have imported a character named Louise who we will use to replace Ethan.</li>
+<li>
+<p>The ThirdPersonController is a prefab.  Think of it as a zip file that contains other files.  Just like you can’t modify the contents of a zip file without unzipping it, you can’t modify the contents of a prefab without “unpacking” it.  The Ethan character is contained inside the ThirdPersonController prefab.  In order to replace Ethan with Louise, we must unpack the prefab.  In the hierarchy window, right-click on the ThirdPersonController and select “Unpack Prefab”. <br/><br/></p>
+<p><img alt="" src="unpack_prefab.png?style=center50" />
+<br/></p>
+</li>
+<li>
+<p>Once the prefab is unpacked, instantiate a copy of Louise inside the unpacked prefab  </p>
+</li>
+<li>
+<p>Now, delete the 3 files (EthanBody, EthanModel, EthanSkeleton) that comprise the Ethan character.<br />
+    <br/></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="" src="louis_and_ethan_hierarchy.png?style=scale90" /> Step 3</td>
+<td align="center"></td>
+<td align="center"><img alt="" src="louise_hierarchy.png?style=scale90" /> Step 4</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+</li>
+<li>
+<p>Finally, we need to tell the ThirdPersonController to use out new character model  </p>
+<ul>
+<li>In the Inspector, for the ThirdPersonController, set the Animator Avatar to the avatar of the new character model.  </li>
+<li>In the Inspector, for the new character model, assure that the Animator Controller is set to ‘None’ and that the model’s avatar is correctly set.<br />
+   <br/></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="" src="avatar.png?style=scale90" /></td>
+<td align="center"></td>
+<td align="center"><img alt="" src="louise_avatar.png?style=scale90" /></td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+</li>
+<li>
+<p>You should now be able to run the project and control your new character.</p>
+</li>
+</ol>
+<p><br><hr></p>
+<p><img alt="" src="../images/il_logo.png?style=center20" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../template/" class="btn btn-neutral float-right" title="Template">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mixamo_characters_and_animations/" class="btn btn-neutral" title="Mixamo Characters and Animations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../mixamo_characters_and_animations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../template/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
