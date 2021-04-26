@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://spelmanil.github.io/docs/mixamo_texture_and_shading_problems/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Mixamo Model Texture & Shading Problems - Spelman Innovaiton Lab Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mixamo Model Texture & Shading Problems";
+    var mkdocs_page_input_path = "mixamo_texture_and_shading_problems.md";
+    var mkdocs_page_url = "/docs/mixamo_texture_and_shading_problems/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Spelman Innovaiton Lab Docs</a>
+        
+<div role="search">
+  <div align="center">
+  <img style="all:unset" src="../images/IL_logo_white_clr_bkgd_200.png"></img><br/><br/>
+  </div>
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Unity_and_GitHub/">Unity & GitHub</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mixamo_characters_and_animations/">Mixamo Characters and Animations</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../controllable_char_with_SA/">Creating Controllable Characters with Unity Standard Assets</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Mixamo Model Texture & Shading Problems</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#extra-steps-for-funky-models">Extra steps for “funky” models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#addressing-rendering-issues">Addressing rendering issues</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../1d_animation_blends/">Instructions for creating a simple 1d animation blend in Unity</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../template/">Template</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Spelman Innovaiton Lab Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Mixamo Model Texture & Shading Problems</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><link rel="stylesheet" href="../css/images.css" /></p>
+<h1 id="mixamo-model-texture-shading-problems">&#x1F4D8; Mixamo Model Texture &amp; Shading Problems</h1>
+<h3 id="extra-steps-for-funky-models">Extra steps for “funky” models</h3>
+<p>At times, your imported model may not look right.  In these cases, the most notable oddity are the eye sockets.  Here is an example:</p>
+<p><img alt="" src="caseB.png?style=center60" /></p>
+<p>Pretty scary, Huh?  This is an issue with the default material shader.  As you can see, the shader is “Transparent”, allowing us to see through parts of the model.  In the image above, we see the eye sockets, and the lower jaw through the model’s skin.</p>
+<p>Another common problem is missing or unapplied textures.  Here is an example:</p>
+<p><img alt="" src="caseC.png?style=center60" /></p>
+<p>In this case, the shading is fine, but no texture has been applied to the model.</p>
+<p>We can categorize texture and shading problems into 4 cases as shown below:</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Case A<br/>improperly textured, improperly shaded</strong><img alt="" src="caseA.png?style=center80" /></td>
+<td align="center"><strong>Case B<br/>properly textured, improperly shaded</strong><img alt="" src="caseB.png?style=center80" /></td>
+</tr>
+<tr>
+<td align="center"><strong>Case C<br/>improperly textured, properly shaded</strong><img alt="" src="caseC.png?style=center80" /></td>
+<td align="center"><strong>Case D<br/>properly textured, properly shaded</strong><img alt="" src="caseD.png?style=center80" /></td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<p>Case D above is a properly textured and shaded model.  This is what we hope to see when we import a model.  Case B is fairly common.  In this case, the model is properly textured (properly colored), but improperly shaded.  Some of the material shaders should be “opaque”, but are “transparent”.  Case C is also common.  Here, the model is properly shaded (opacities are correct), but no texture is applied.  Case A is the most difficult.  Here, the model is neither properly shaded nor textured.
+<br/><br/></p>
+<h3 id="addressing-rendering-issues">Addressing rendering issues</h3>
+<p>When confronted with a model with both shading and texturing problems (case A), begin by fixing the texturing problem.  In other words, go from A-&gt;B-&gt;D rather than A-&gt;C-&gt;D.
+<br/></br/></p>
+<p><strong>Fixing texturing issues</strong></p>
+<p>You can fix most texturing issues by following the instructions in the “<a href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>” guide.  Texturing issues are shown in Cases A and C above.
+<br/><br/></p>
+<p><strong>Fixing Shading issues</strong></p>
+<p>Shading issues are shown in Cases A and B above.  The fix is to change the shader rendering mode for each of the model’s materials from “Transparent” to  “Opaque”.  How we do this depends on whether or not your model is using materials that are external to the model file.</p>
+<p>If your model was not textured on import, follow the direction above to get it textured.  In the process of fixing the texturing issue, you will have created an external copy of the model’s materials.  This is required to fix the shading issue.</p>
+<p>If, on the other hand, your model was properly textured on import but has a shading problem (case B), then your model is  using embedded materials.  Unfortunately, we can’t change the shader for materials embedded in a prefab.  Instead, we have to make copies of the materials, adjust their shaders then re-assign the new materials to the model.  Follow the direction in the “<a href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>” guide to make an external copy of the model’s materials.</p>
+<p>Once your materials are extracted, </p>
+<p>In the materials folder, select all materials</p>
+<p>In the inspector, change the shader from Transparent to Opaque</p>
+<p>??</p>
+<p><br><hr></p>
+<p><img alt="" src="../images/il_logo.png?style=center20" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../fixing_missing_textures/" class="btn btn-neutral float-right" title="Instructions for fixing missing mixamo character textures">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../controllable_char_with_SA/" class="btn btn-neutral" title="Creating Controllable Characters with Unity Standard Assets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../controllable_char_with_SA/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../fixing_missing_textures/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://spelmanil.github.io/docs/1d_animation_blends/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Instructions for creating a simple 1d animation blend in Unity - Spelman Innovaiton Lab Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Instructions for creating a simple 1d animation blend in Unity";
+    var mkdocs_page_input_path = "1d_animation_blends.md";
+    var mkdocs_page_url = "/docs/1d_animation_blends/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Spelman Innovaiton Lab Docs</a>
+        
+<div role="search">
+  <div align="center">
+  <img style="all:unset" src="../images/IL_logo_white_clr_bkgd_200.png"></img><br/><br/>
+  </div>
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Unity_and_GitHub/">Unity & GitHub</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mixamo_characters_and_animations/">Mixamo Characters and Animations</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../controllable_char_with_SA/">Creating Controllable Characters with Unity Standard Assets</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mixamo_texture_and_shading_problems/">Mixamo Model Texture & Shading Problems</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Instructions for creating a simple 1d animation blend in Unity</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#single-1d-blend-tree">Single, 1D Blend Tree</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-transition-states-tofrom-the-blend-trees">Adding Transition States to/from the Blend Trees</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../template/">Template</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Spelman Innovaiton Lab Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Instructions for creating a simple 1d animation blend in Unity</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><link rel="stylesheet" href="../css/images.css" /></p>
+<h1 id="instructions-for-creating-a-simple-1d-animation-blend-in-unity">&#x1F4D8; Instructions for creating a simple 1d animation blend in Unity</h1>
+<p>Animation blends in Unity are created using blend trees.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Blend Trees are used for allowing multiple animations to be blended smoothly by incorporating parts of them all to varying degrees. The amount that each of the motions contributes to the final effect is controlled using a blending parameter.  In order for the blended motion to make sense, the motions that are blended must be of similar (not identical) in nature and timing.</p>
+<p><a href="https://docs.unity3d.com/Manual/class-BlendTree.html">https://docs.unity3d.com/Manual/class-BlendTree.html</a></p>
+</div>
+<p>Begin with a downloaded character and 2 animations to be blended.  For this example, we use the ybot character with “Standard Walk” and “Injured Walk” animations.  We will create a blending parameter named injury which is a float that can take values from 0.0 to 1.0 inclusive.  When injury is 0.0, the character should execute the “Standard Walk” animation.  When injury is 1.0, the character should execute the “Injured Walk” animation.  For values of injury between 0.0 and 1.0, the character should execute a proportional blend of the 2 animations.</p>
+<h2 id="single-1d-blend-tree">Single, 1D Blend Tree</h2>
+<p><strong>Step 1: Create Animator Controller</strong></p>
+<ul>
+<li>Into an empty Unity 3D project, import the character asset and the 2 animations to be blended.  Add the character to the scene (instantiate the character).  Be sure the character asset’s rig is set to “humanoid”.</li>
+<li>Drag an animation to the instantiated character in the Hierarchy window to create an animation controller for the character.</li>
+<li>Alternatively, in the “Assets” window, right click the character asset and “Create-&gt;Animator Controller”.  Name the controller appropriately.  Then associate the controller with the instantiated character.  See the figure below.  You can then add the 2 animations to the controller.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step1.png?style=left60" /><br/><br/>If you manually create the animator controller, you will need to associate it with the character through the character inspector.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p><strong>Step 2: Create a Blend Tree</strong></p>
+<ul>
+<li>Create a blend tree in the Animator as shown in the figure below.  Set it as the default state.</li>
+</ul>
+<p><img alt="" src="step2ab.png?style=center100" /></p>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step2c.png?style=right60" /><br/><br/>Create a blending parameter by navigating to the Parameters window of the Animator and selecting “Float” from the drop down menu as shown.  Create a parameter named “injury”.  Then, delete the default “Blend” parameter if it is present.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p><strong>Step 3: Add Animations to the Blend Tree</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step3a.png?style=right50" /><br/><br/>Double click on the blend tree in the base layer window to bring up the blend tree editor.  You should see the blend parameter and a slide control.  Right-click on the Blend Tree and select “Add Motion” to add our first motion to be blended.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step3b.png?style=right60" /><br/><br/>Add the “Standard Walk” motion.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step3c.png?style=right50" /><br/><br/>Repeat the last 2 steps to add the “Injured Walk” motion.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<ul>
+<li>You should now be able to execute the project and observe the blended animation.  Change the value of the injury blend parameter to verify that you can smoothly transition from one animation to the other.  If your blended animation does not loop properly, make sure that both animations have the “Loop Time” option checked.</li>
+</ul>
+<p><br/></p>
+<h2 id="adding-transition-states-tofrom-the-blend-trees">Adding Transition States to/from the Blend Trees</h2>
+<p><strong>Step 4: Add the Individual Animations </strong></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step4a.png?style=right60" /><br/><br/>Add the “Standard Walk” and “Injured Walk” animations to the base layout and set the “Standard Walk” animation as the default state.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step4b.png?style=right60" /><br/><br/>Now create transitions to and from the blend state as shown.  We want to configure the animations in the following way:  for values of injury &lt; 0.1, we should be in the “Standard Walk” state.  For values of injury &gt; 0.9, we should be in the “Injury Walk” state.  For values of injury between 0.1 and 0.9, we should be in the blend state.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="" src="step4c.png?style=right60" /><br/><br/>Select the individual transitions for edit by clicking on its representative arrow.  In the image shown, the transition from “Standard Walk” to the blend tree is set to “injury &gt; 0.1”.<br/><br/>Repeat a similar process for the other 3 transitions.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<ul>
+<li>You should now be able to see the animation transition between “Standard Walk”, “Injured Walk” and the blend tree as the value of injury changes.</li>
+</ul>
+<p><br/></p>
+<p><strong>Step 5: Keyboard controls </strong></p>
+<ul>
+<li>You can use keyboard inputs to change the value of injury at runtime.  Create a script (called SetInjury in this example) and associate it with the character.  Here is the contents of the script:</li>
+</ul>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SetInjury : MonoBehaviour
+{
+    Animator animator;
+    const float injuryInc = 0.01f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent&lt;Animator&gt;();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            float injury = animator.GetFloat(&quot;injury&quot;);
+            injury = injury + injuryInc;
+            if (injury &gt; 1.0f) injury = 1.0f;
+            animator.SetFloat(&quot;injury&quot;, injury);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            float injury = animator.GetFloat(&quot;injury&quot;);
+            injury = injury - injuryInc;
+            if (injury &lt; 0.0f) injury = 0.0f;
+            animator.SetFloat(&quot;injury&quot;, injury);
+        }
+    }
+}
+
+
+</code></pre>
+<p><br><hr></p>
+<p><img alt="" src="../images/il_logo.png?style=center20" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../template/" class="btn btn-neutral float-right" title="Template">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../fixing_missing_textures/" class="btn btn-neutral" title="Instructions for fixing missing mixamo character textures"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../fixing_missing_textures/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../template/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

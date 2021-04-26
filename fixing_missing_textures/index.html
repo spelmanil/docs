@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://spelmanil.github.io/docs/Unity_and_GitHub/">
+  <link rel="canonical" href="https://spelmanil.github.io/docs/fixing_missing_textures/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Unity & GitHub - Spelman Innovaiton Lab Docs</title>
+  <title>Instructions for fixing missing mixamo character textures - Spelman Innovaiton Lab Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Unity & GitHub";
-    var mkdocs_page_input_path = "Unity_and_GitHub.md";
-    var mkdocs_page_url = "/docs/Unity_and_GitHub/";
+    var mkdocs_page_name = "Instructions for fixing missing mixamo character textures";
+    var mkdocs_page_input_path = "fixing_missing_textures.md";
+    var mkdocs_page_url = "/docs/fixing_missing_textures/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -55,10 +55,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Unity & GitHub</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Unity_and_GitHub/">Unity & GitHub</a>
                     </li>
                 </ul>
                 <ul>
@@ -73,8 +71,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../mixamo_texture_and_shading_problems/">Mixamo Model Texture & Shading Problems</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Instructions for fixing missing mixamo character textures</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -106,7 +106,7 @@
     
       
     
-    <li>Unity & GitHub</li>
+    <li>Instructions for fixing missing mixamo character textures</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -118,38 +118,21 @@
             <div class="section">
               
                 <p><link rel="stylesheet" href="../css/images.css" /></p>
-<h2 id="instructions-for-using-github-with-unity-personal">&#x1F4D8; Instructions for using GitHub with Unity Personal</h2>
-<p>For Unity Personal, GitHub integration is not included.  This guide explains how to use GitHub with Unity Personal.  The guide is written for Mac users, but the outlined procedure should be similar for Windows users.  A prerequisite for this guide is having the GitHub Desktop application installed on your system.  You may download GitHub Desktop <a href="https://desktop.github.com/">here</a> .</p>
-<p><img alt="" src="git_hub_logo.jpg?style=center50" /></p>
-<p>Begin by selecting an existing Unity project that you want to put under GitHub control.  If you are creating a new project, create the project <em>before</em> creating the repository for it.  Unity will not create a project in an existing directory.</p>
-<p>For this example, assume we have created a Unity project in the directory</p>
-<p><code>/Users/Laura/Documents/myProject</code></p>
-<p>Follow the steps below to get the project under GitHub control:</p>
-<p><strong>Step 1:</strong> From the GitHub Desktop interface, select “Create New Repository”</p>
-<p><img alt="" src="Fig1.png?style=center90" /></p>
-<p><br></p>
-<p><strong>Step 2:</strong> Refer to the figure below to fill in the popup window that appears.</p>
-<ol>
-<li>Enter the <em>parent</em> directory of the existing Unity project in the <em>Local Path</em> field.  In our example case, that would be <code>/Users/Laura/Documents</code></li>
-<li>Enter the name of the existing Unity project directory in the <em>Name</em> field.  In our case, that would be <code>myProject</code></li>
-<li>Check the initialize with README box if you want to create a REAME.md for your repository (not required, but a good practice).</li>
-<li>Be certain to select Unity in the <em>Git Ignore</em> field.  If you neglect to do this, you will have to go find an appropriate .gitignore file to include.  Also, all the superfluous files will be included with the initial import.  Bottom line: <em><span style="text-decoration:underline;">don’t forget to do this</span></em>.</li>
-<li>Click on <em>Create Repository</em> to create the repository.</li>
-</ol>
-<p>Done.  If you are logged into your GitHub a/c, you should be immediately able to push the new repository to GitHub.</p>
-<p><img alt="" src="Fig2.png?style=center60" /></p>
-<p><strong>Step 3:</strong> <em>(optional; for Mac users only)</em></p>
-<p>Mac users may consider adding the following to their <code>.gitignore</code> files:</p>
-<pre><code># OS generated files #
-######################
-.DS_Store
-.DS_Store?
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-</code></pre>
-<p>MacOS generates a number of temporary files (some hidden, some not) that you will not want to add to your repository.  Besides taking up space, these files will make it difficult for you to tell whether the local files you care about are synced to your repository.  To avoid this, simply cut and paste the lines above to the end of your <code>.gitignore</code> file.  </p>
+<h1 id="instructions-for-fixing-missing-mixamo-character-textures">&#x1F4D8; Instructions for fixing missing mixamo character textures</h1>
+<p>At times, your imported mixamo model may show no texture.  Here is an example:</p>
+<p><img alt="" src="image1.png?style=center60" /></p>
+<p>Rest assured: mixamo models have built-in textures!  (models from other sites may have external textures or no textures at all.  Those may require a different solution than the one presented here.)<br />
+<br/></p>
+<p><strong>Step 1: Create a home for your model’s textures</strong></p>
+<p>Create a folder named “Textures” in the same directory where the downloaded model is.  The folder must be named “Textures”.  You may rename and move it later, but by default, this is where Unity will look for textures for your model.</p>
+<p><img alt="" src="image2.png?style=center80" /></p>
+<p><br/>
+<strong>Step 2: Extract your model’s textures</strong></p>
+<p>Select the model in the “Assets” window (not its instance in the Hierarchy).  In the Inspector, select “Materials” then “Extract Textures”.   Then, when prompted, select the folder you created in step 1 as the destination for your extracted textures.</p>
+<p><img alt="" src="image3.png?style=center60" /></p>
+<p><img alt="" src="image4.png?style=center60" /></p>
+<p>If everything went right, your model should now be properly textured.  If a dialog box pops up warning you of unmarked textures used as normal maps, simply accept the recommended changes by selecting “Fix now”.</p>
+<p><img alt="" src="image5.png?style=center70" /></p>
 <p><br><hr></p>
 <p><img alt="" src="../images/il_logo.png?style=center20" /></p>
               
@@ -159,10 +142,10 @@ Thumbs.db
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mixamo_characters_and_animations/" class="btn btn-neutral float-right" title="Mixamo Characters and Animations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../1d_animation_blends/" class="btn btn-neutral float-right" title="Instructions for creating a simple 1d animation blend in Unity">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mixamo_texture_and_shading_problems/" class="btn btn-neutral" title="Mixamo Model Texture & Shading Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -188,10 +171,10 @@ Thumbs.db
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../mixamo_texture_and_shading_problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mixamo_characters_and_animations/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../1d_animation_blends/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
