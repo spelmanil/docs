@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://spelmanil.github.io/docs/il_programs/template/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Template - Spelman Innovaiton Lab Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Template";
+    var mkdocs_page_input_path = "il_programs/template.md";
+    var mkdocs_page_url = "/docs/il_programs/template/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Spelman Innovaiton Lab Docs</a>
+        
+<div role="search">
+  <div align="center">
+  <img style="all:unset" src="../../images/IL_logo_white_clr_bkgd_200.png"></img><br/><br/>
+  </div>
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../il_programs/">IL Programs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unity/unity/">SpelmanVR</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Spelman Innovaiton Lab Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Template</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><link rel="stylesheet" href="../../css/images.css" /></p>
+<h1 id="template-for-creating-a-new-google-doc-page">Template for creating a new Google Doc page</h1>
+<!----------------- BEGIN: CUT HERE ----------------->
+
+<h3 id="example-link"><a href="https://docs.google.com/document/d/e/2PACX-1vRNGVmAPAoiw89Ijf390RDFWfXwrnPF69wNq_8AQg1PtX-1PVroe0jQDRz29yZ3CuUOMscU-sRZQ5DF/pub?embedded=true">&#x1F4D8;Example Link</a></h3>
+<!-- Template 
+###[&#x1F4D8;Name](GoogleLink?embedded=true)
+-->
+
+<p>Append <code>?embedded=true</code> to the link provided when the Google page is published.</p>
+<hr>
+
+<p>Begin with a copy of this file.  Name it appropriately.  Then, create a directory to hold the media associated with the new page.  For consistency, give the directory the same name as your newly created md file.  So, for <code>template.md</code>, the directory will be <code>template</code>.  Place <code>template.md</code> on the root directory (the directory that contains the top-level index.md file.  Add an entry to <code>mkdocs.yml</code> that points to your .md file.</p>
+<p>Assume we have an image <code>image1.jpg</code>.  Put this image in the <code>template</code> directory.  Reference the image with a local path <code>template\image1.jpg</code> in the following way:</p>
+<pre><code>![Alt text](template/image1.jpg?style=center50)
+</code></pre>
+<p><img alt="Cute Baby" src="image1.jpg?style=center50" /></p>
+<p>The <code>Alt text</code> can be empty.  The style has values like <code>center50</code>, <code>right30</code>, <code>left10</code>, <code>scale70</code>, etc.  For these examples, the respective results would be "image is centered and scaled at 50%", "image is right-aligned and scaled at 30%", "image is left aligned and scaled at 10%" and "image is scaled at 70%".
+<em>Note that in order to use these image style values, you must link to the appropriate css file at the top of your md file:</em></p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/images.css&quot; /&gt;
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a warning for you.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a note for you.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This is a danger notice for you.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is an important message for you.</p>
+</div>
+<p>A few interesting Unicodes:  </p>
+<p>RED APPLE: &#x1F34E;<br />
+GREEN APPLE: &#x1F34F;<br />
+BLUE HEART: &#x1F499;<br />
+GREEN HEART: &#x1F49A;<br />
+YELLOW HEART: &#x1F49B;<br />
+PURPLE HEART: &#x1F49C;<br />
+GREEN BOOK: &#x1F4D7;<br />
+BLUE BOOK: &#x1F4D8;<br />
+ORANGE BOOK: &#x1F4D9;<br />
+LARGE RED CIRCLE: &#x1F534;<br />
+LARGE BLUE CIRCLE: &#x1F535;<br />
+LARGE ORANGE DIAMOND: &#x1F536;<br />
+LARGE BLUE DIAMOND: &#x1F537;<br />
+SMALL ORANGE DIAMOND: &#x1F538;<br />
+SMALL BLUE DIAMOND: &#x1F539;<br />
+UP-POINTING RED TRIANGLE: &#x1F53A;<br />
+DOWN-POINTING RED TRIANGLE: &#x1F53B;<br />
+UP-POINTING SMALL RED TRIANGLE: &#x1F53C;<br />
+DOWN-POINTING SMALL RED TRIANGLE: &#x1F53D;  </p>
+<!----------------- END: CUT HERE ----------------->
+
+<p><br><hr></p>
+<p><img alt="" src="../../images/il_logo.png?style=center20" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
