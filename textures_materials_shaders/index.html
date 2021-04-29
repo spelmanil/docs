@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://spelmanil.github.io/docs/fixing_missing_textures/">
+  <link rel="canonical" href="https://spelmanil.github.io/docs/textures_materials_shaders/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Instructions for fixing missing mixamo character textures - Spelman Innovaiton Lab Docs</title>
+  <title>Understanding Textures, Materials and Shaders - Spelman Innovaiton Lab Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Instructions for fixing missing mixamo character textures";
-    var mkdocs_page_input_path = "fixing_missing_textures.md";
-    var mkdocs_page_url = "/docs/fixing_missing_textures/";
+    var mkdocs_page_name = "Understanding Textures, Materials and Shaders";
+    var mkdocs_page_input_path = "textures_materials_shaders.md";
+    var mkdocs_page_url = "/docs/textures_materials_shaders/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -71,10 +71,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../mixamo_texture_and_shading_problems/">Mixamo Model Texture & Shading Problems</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Instructions for fixing missing mixamo character textures</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fixing_missing_textures/">Instructions for fixing missing mixamo character textures</a>
                     </li>
                 </ul>
                 <ul>
@@ -85,8 +83,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../Buildinga2DRPGWorldinUnity/">Building a 2D RPG World in Unity</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../textures_materials_shaders/">Understanding Textures, Materials and Shaders</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Understanding Textures, Materials and Shaders</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -110,7 +110,7 @@
     
       
     
-    <li>Instructions for fixing missing mixamo character textures</li>
+    <li>Understanding Textures, Materials and Shaders</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -122,21 +122,43 @@
             <div class="section">
               
                 <p><link rel="stylesheet" href="../css/images.css" /></p>
-<h1 id="instructions-for-fixing-missing-mixamo-character-textures">&#x1F4D8; Instructions for fixing missing mixamo character textures</h1>
-<p>At times, your imported mixamo model may show no texture.  Here is an example:</p>
-<p><img alt="" src="image1.png?style=center60" /></p>
-<p>Rest assured: mixamo models have built-in textures!  (models from other sites may have external textures or no textures at all.  Those may require a different solution than the one presented here.)<br />
-<br/></p>
-<p><strong>Step 1: Create a home for your model’s textures</strong></p>
-<p>Create a folder named “Textures” in the same directory where the downloaded model is.  The folder must be named “Textures”.  You may rename and move it later, but by default, this is where Unity will look for textures for your model.</p>
-<p><img alt="" src="image2.png?style=center80" /></p>
-<p><br/>
-<strong>Step 2: Extract your model’s textures</strong></p>
-<p>Select the model in the “Assets” window (not its instance in the Hierarchy).  In the Inspector, select “Materials” then “Extract Textures”.   Then, when prompted, select the folder you created in step 1 as the destination for your extracted textures.</p>
-<p><img alt="" src="image3.png?style=center60" /></p>
-<p><img alt="" src="image4.png?style=center60" /></p>
-<p>If everything went right, your model should now be properly textured.  If a dialog box pops up warning you of unmarked textures used as normal maps, simply accept the recommended changes by selecting “Fix now”.</p>
-<p><img alt="" src="image5.png?style=center70" /></p>
+<h1 id="understanding-textures-materials-and-shaders">&#x1F4D8; Understanding Textures, Materials and Shaders</h1>
+<p>Unity makes extensive use of regular image files (.jpeg, .png, .bmp, etc.).  When image files are used as 2D images, they are called <strong><em>sprites</em></strong>.  When image files are used to wrap 3D objects, they are called <strong><em>textures</em></strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="" src="book_sprite.png?style=center80" /></td>
+<td align="center"><br/></br>a JPEG image used as a <strong><em>sprite</em></strong></td>
+</tr>
+<tr>
+<td align="center"><img alt="" src="book_texture.png?style=center90" /></td>
+<td align="center"><br/></br>same image used as a <strong><em>texture</em></strong></td>
+</tr>
+</tbody>
+</table>
+<p>Knowing the color of an object is not enough to produce a realistic rendering of that object.  Real objects have surface roughness, can be specular or diffuse, can be metallic, may glow and have other properties that affect how they appear.  In Unity, <strong><em>materials</em></strong> are created to capture the texture as well as other parameters needed to fully describe how an object will look.</p>
+<p>You <em>cannot</em> apply a texture to an object.  If you could, this would be the result:
+<img alt="" src="no_material.png?style=center100" /></p>
+<p>Not a realistic rendering, Huh?  What this is is basically a "colored-in" mesh.  What, in fact, we want looks more like this:  </p>
+<p><img alt="" src="material_shading.png?style=center40" /></p>
+<p>This object is the result of applying a <em>material</em> to the same object.  A <em>material</em> consists of an object's texture and its surface information.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong><em>material</em></strong> <strong> = Texture + Surface Information</strong></p>
+</div>
+<p>Here is a simple texture: 
+<img alt="" src="red.png?style=center20" /></p>
+<p>Here are examples of materials all created from this simple texture:  </p>
+<p><img alt="" src="materials.png?style=center100" /></p>
+<p>Notice how different these materials look compared to the texture from which they were created.  3-D objects are “skinned” with materials, not textures.  You cannot apply a texture directly to a 3D object, because textures carry no surface information.  To wrap a 3D object in a texture, first create a material from the texture.  Then apply the material to the object.</p>
+<p>Even given a material that properly describes an object's surface, we are still unable to generate a realistic rendering of the object on screen.  Doing that depends not only on the object's surface property, but also on the lighting condition and viewing angle.  Objects will look different under different color lights.  They will look different under a diffuse (think cloudy day) light versus under direct illumination.  It is the role of the <strong><em>shader</em></strong> to properly render an object on the sceen in real-time.  <em>Shaders</em> are code scripts that, given an object's shape, its material, the viewing angle and the lighting conditions, compute how to render the object on the screen.</p>
+<p><img alt="" src="shader.png?style=center100" /></p>
 <p><br><hr></p>
 <p><img alt="" src="../images/il_logo.png?style=center20" /></p>
               
@@ -146,10 +168,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../1d_animation_blends/" class="btn btn-neutral float-right" title="Instructions for creating a simple 1d animation blend in Unity">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../mixamo_texture_and_shading_problems/" class="btn btn-neutral" title="Mixamo Model Texture & Shading Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Buildinga2DRPGWorldinUnity/" class="btn btn-neutral" title="Building a 2D RPG World in Unity"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -175,10 +195,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mixamo_texture_and_shading_problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Buildinga2DRPGWorldinUnity/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../1d_animation_blends/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
